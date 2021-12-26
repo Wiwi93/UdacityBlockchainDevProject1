@@ -1,0 +1,11 @@
+    {
+        "address": "bc1qejhn9tmysdxhw6fhepp4pp0hzglsnqcfd97w56",
+        "signature": "HxEFdzQLpHo0y4mcO1jSQxBTUMp/xQozdnaAewvlx9IhNhGv1Iw+prNpbw1wDXcjikPCYpwXkTxjYmfQ7qi6zbc=",
+        "message":
+        "bc1qejhn9tmysdxhw6fhepp4pp0hzglsnqcfd97w56:1640546614:starRegistry",
+        "star" : {
+            "ra": "bullshit1",
+            "desc": "bullshit2",
+            "story": "bullshit3"
+        }
+    }
