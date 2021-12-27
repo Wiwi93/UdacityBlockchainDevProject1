@@ -127,7 +127,7 @@ class Blockchain {
         return new Promise(async (resolve, reject) => {
           let message_time =  parseInt(message.toString().split(':')[1]);
            let current_time = parseInt(new Date().getTime().toString().slice(0, -3));
-           //if(current_time-message_time < 1000){
+           if(current_time-message_time < 300){
             console.log("current time is" + current_time);
             console.log("message time is" + message_time);
             console.log("message is " + message);
@@ -142,8 +142,8 @@ class Blockchain {
 
             }
             else{reject("can't verify msg");};
-           // }
-           //else{reject("took too long");}
+            }
+           else{reject("took too long");}
         });
     }
 
@@ -234,7 +234,7 @@ class Blockchain {
         let errorLog = [];
         return new Promise(async (resolve, reject) => {
             for (i==0; i<self.height;i++){
-              let validate =  Blockclass.validateChain(self.chain[i]);
+              let validate =  self.chain[i].validateChain();
               validate().then(result => errorLog.push(result));
             }
             if (self.height == -1){
