@@ -133,7 +133,7 @@ class Blockchain {
             console.log("message is " + message);
             console.log("address is " + address);
             console.log("signature is" + signature.toString("base64"));
-            //bs58check.encode(new Buffer(address))
+          
             if(bitcoinMessage.verify(message,address,signature.toString("base64"), null,true)){
                 self.addBlock(new BlockClass.Block({address : address, message : message, signature:signature,star:star})).then(
                     function(block){
@@ -203,16 +203,7 @@ class Blockchain {
                  if(result.address==address){
                     stars.push({owner:address,star : result.star});
                  }})
-                    //const add_star = {}})
-                
-    //            block_body().then(function(body){
-      //              console.log("the body of the block is"+ JSON.stringify(body));
-        //            if(body.address === address){
-          //              const add_star = {owner:address,star : body.star};
-            //            stars.push(add_star);
-               //         console.log("im here");
-                 //   }
-                //})
+
                 
             }
         }
@@ -233,13 +224,14 @@ class Blockchain {
         let self = this;
         let errorLog = [];
         return new Promise(async (resolve, reject) => {
+                if (self.height == -1){
+                reject(Error("Genesis Block"));
+            }
             for (i==0; i<self.height;i++){
               let validate =  self.chain[i].validateChain();
               validate().then(result => errorLog.push(result));
             }
-            if (self.height == -1){
-                reject(Error("Genesis Block"));
-            }
+        
         });
     }
 

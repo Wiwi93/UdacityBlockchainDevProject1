@@ -11,7 +11,7 @@
 
 const SHA256 = require('crypto-js/sha256');
 const hex2ascii = require('hex2ascii');
-const bitcoinMessage = require('bitcoinjs-message');
+
 
 class Block {
 
@@ -57,9 +57,7 @@ class Block {
                 resolve(true);
                } 
                else { reject(false)}
-            // Returning the Block is not valid
-            
-            // Returning the Block is valid
+           
 
         });
     }
@@ -74,11 +72,7 @@ class Block {
      *     or Reject with an error.
      */
     getBData() {
-        // Getting the encoded data saved in the Block
-        // Decoding the data to retrieve the JSON representation of the object
-        // Parse the data to an object to be retrieve.
 
-        // Resolve with the data if the object isn't the Genesis block
         let self = this;
         return new Promise(async (resolve, reject) => {
             var decoded_data = hex2ascii(self.body);
