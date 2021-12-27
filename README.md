@@ -7,6 +7,7 @@
 You should see in your terminal a message indicating that the server is listening in port 8000:
 > Server Listening for port: 8000
 
+For all the tests, you can use the provided `address.json` and `submitStar.json` as a guide to submit API POST requests. 
 2. To make sure your application is working fine and it creates the Genesis Block you can use POSTMAN to request the Genesis block:
     ![Request: http://localhost:8000/block/height/0 ](getblockbyHeight.PNG)
 3. Make your first request of ownership sending your wallet address:
