@@ -2,6 +2,7 @@
 
 ## How to test your application functionalities?
 
+0. Clone the repository, cd into then hit `npm install`
 1. Run your application using the command `node app.js`
 You should see in your terminal a message indicating that the server is listening in port 8000:
 > Server Listening for port: 8000
