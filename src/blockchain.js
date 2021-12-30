@@ -81,7 +81,10 @@ class Blockchain {
             self.chain.push(block);
             if(self.chain.length === previous_chain_length + 1){
                 self.height = previous_chain_length;
-                resolve(block);
+                let bool = await block.validate();
+                if(bool){
+                resolve(block);}
+                else{reject("Block's been tampered with");}
             }
             else {reject("Error adding a block to the chain");}
   })
@@ -227,11 +230,11 @@ class Blockchain {
                 if (self.height == -1){
                 reject(Error("Genesis Block"));
             }
-            for (i==0; i<self.height;i++){
-              let validate =  self.chain[i].validateChain();
-              validate().then(result => errorLog.push(result));
+            for (let i=0; i<self.height;i++){
+              await self.chain[i].validate().then(result => errorLog.push(result));
+              
             }
-        
+        resolve(JSON.stringify(errorLog));
         });
     }
 
